@@ -14,9 +14,15 @@ export default function Navbar() {
   return (
     <header className="border-b">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href="#" className="flex items-center gap-1" prefetch={false}>
-          <LampDesk strokeWidth={2.5} />
-          <h1 className="text-lg font-bold tracking-tighter">vt-code</h1>
+        <Link
+          href="#"
+          className="flex items-baseline gap-1 pt-1"
+          prefetch={false}
+        >
+          <LampDesk strokeWidth={2} />
+          <h1 className="font-custom text-2xl font-semibold tracking-tighter">
+            vt-code
+          </h1>
         </Link>
         <nav className="hidden items-center gap-4 md:flex">
           <Link
