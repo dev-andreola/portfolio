@@ -13,7 +13,7 @@ import { ThemeToggle } from "./theme-toggle-button";
 const navbarItem = [
   {
     title: "Projetos",
-    href: "#",
+    href: "/projects",
     icon: FolderIcon,
   },
   {
@@ -33,7 +33,7 @@ export default function Navbar() {
     <header className="fixed left-0 top-0 z-50 w-full border-b bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
-          href="#"
+          href="/"
           className="flex items-baseline gap-1 pt-1"
           prefetch={false}
         >
@@ -45,7 +45,7 @@ export default function Navbar() {
         <nav className="hidden items-center gap-4 md:flex">
           {navbarItem.map((item) => {
             return (
-              <Button variant={"ghost"} key={item.title}>
+              <Button asChild variant={"ghost"} key={item.title}>
                 <Link
                   href={item.href}
                   className="text-sm font-medium"

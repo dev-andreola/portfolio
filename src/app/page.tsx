@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="">
-      <section id="hero" className="bg-muted pt-[62px]">
+      <section id="hero" className="bg-muted">
         <div className="mx-auto w-full max-w-6xl border-y py-6 md:py-24 lg:py-32">
           <div className="container space-y-10 px-4 md:px-6 xl:space-y-16">
             <div className="grid gap-4 px-4 md:grid-cols-2 md:gap-16">

@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "font-sans min-h-screen bg-background antialiased",
           fontSans.variable,
         )}
       >
@@ -35,7 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <div className="pt-[62px]">{children}</div>
         </ThemeProvider>
       </body>
     </html>
