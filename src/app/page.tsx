@@ -83,6 +83,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <footer className="bg-muted py-6 text-center text-sm text-muted-foreground">
+        <div className="container">
+          &copy; 2024 vt-code. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }
