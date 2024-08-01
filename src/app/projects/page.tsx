@@ -8,22 +8,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Projects() {
-  const projectList = [
-    {
-      title: "Projeto 1",
-      desc: "A web application for managing your tasks and projects.",
-      href: "/",
-    },
-    {
-      title: "Projeto 2",
-      desc: "A mobile app for tracking your fitness activities.",
-      href: "/",
-    },
-  ];
+export default async function Projects() {
+  const projectList = await prisma.project.findMany({});
 
   return (
     <div>
@@ -70,15 +60,15 @@ export default function Projects() {
             {projectList.map((project) => {
               return (
                 <Link
-                  key={project.title}
-                  href="#"
+                  key={project.id}
+                  href={project.href}
                   className="block"
                   prefetch={false}
                 >
                   <Card className="shadow-shape">
                     <Image
-                      src={"/art.png"}
-                      alt="Project"
+                      src={project.imageUrl}
+                      alt={`Thumbnail do projeto ${project.title}`}
                       width={300}
                       height={400}
                       className="h-48 w-full rounded-t-xl object-cover"
