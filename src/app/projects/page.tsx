@@ -38,7 +38,7 @@ export default function Projects() {
                 <div className="w-2/4 flex-1">
                   <Input
                     type="text"
-                    placeholder="Procurar projetos..."
+                    placeholder="Buscar projetos..."
                     className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground placeholder:text-foreground"
                   />
                 </div>
