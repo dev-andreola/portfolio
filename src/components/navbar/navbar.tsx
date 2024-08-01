@@ -2,17 +2,26 @@
 
 import {
   FolderIcon,
+  House,
   LampDesk,
+  LogInIcon,
   MailIcon,
   MenuIcon,
   UserIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import { ThemeToggle } from "./theme-toggle-button";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Separator } from "../ui/separator";
 
 const navbarItem = [
   {
@@ -75,23 +84,49 @@ export default function Navbar() {
           <ThemeToggle />
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
+              <Button variant="outline" size="icon">
                 <MenuIcon className="size-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
+
             <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
               <nav className="grid gap-4 py-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="font-semibold">Olá. Faça seu login!</h2>
+                  <Button size="icon">
+                    <LogInIcon />
+                  </Button>
+                </div>
+
+                <Separator />
+
+                <Link href={"/"} prefetch={false} onClick={handleLinkClick}>
+                  <Button
+                    variant={pathname === "/" ? "default" : "ghost"}
+                    className="flex w-full items-center justify-start gap-2 text-lg font-medium"
+                  >
+                    <House className="size-5" />
+                    Início
+                  </Button>
+                </Link>
                 {navbarItem.map((item) => (
                   <Link
                     key={item.title}
                     href={item.href}
-                    className="flex items-center gap-2 text-lg font-medium"
                     prefetch={false}
                     onClick={handleLinkClick}
                   >
-                    <item.icon className="size-5" />
-                    {item.title}
+                    <Button
+                      variant={pathname === item.href ? "default" : "ghost"}
+                      className="flex w-full items-center justify-start gap-2 text-lg font-medium"
+                    >
+                      <item.icon className="size-5" />
+                      {item.title}
+                    </Button>
                   </Link>
                 ))}
               </nav>
