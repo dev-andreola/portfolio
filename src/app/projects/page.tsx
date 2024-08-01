@@ -28,7 +28,7 @@ export default function Projects() {
     <main className="bg-muted">
       <div className="container mx-auto max-w-6xl py-6 md:py-12">
         <div className="mb-8 flex items-center justify-between md:mb-10 lg:mb-12">
-          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Meus Projetos
           </h1>
           <div className="flex items-center gap-4">

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FolderIcon,
   LampDesk,
@@ -9,6 +11,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { ThemeToggle } from "./theme-toggle-button";
+import { usePathname } from "next/navigation";
 
 const navbarItem = [
   {
@@ -18,17 +21,21 @@ const navbarItem = [
   },
   {
     title: "Blog",
-    href: "#",
+    href: "/blog",
     icon: UserIcon,
   },
   {
     title: "Contato",
-    href: "#",
+    href: "/contact",
     icon: MailIcon,
   },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  console.log(pathname);
+
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
@@ -45,7 +52,11 @@ export default function Navbar() {
         <nav className="hidden items-center gap-4 md:flex">
           {navbarItem.map((item) => {
             return (
-              <Button asChild variant={"ghost"} key={item.title}>
+              <Button
+                asChild
+                variant={pathname === item.href ? "outline" : "ghost"}
+                key={item.title}
+              >
                 <Link
                   href={item.href}
                   className="text-sm font-medium"
