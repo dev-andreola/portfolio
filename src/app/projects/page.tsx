@@ -61,8 +61,13 @@ export default function Projects() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8 lg:grid-cols-4 lg:gap-10">
           {projectList.map((project) => {
             return (
-              <Card key={project.title}>
-                <Link href="#" className="block" prefetch={false}>
+              <Link
+                key={project.title}
+                href="#"
+                className="block"
+                prefetch={false}
+              >
+                <Card className="shadow-shape">
                   <Image
                     src={"/art.png"}
                     alt="Project"
@@ -78,8 +83,8 @@ export default function Projects() {
                       {project.desc}
                     </p>
                   </CardContent>
-                </Link>
-              </Card>
+                </Card>
+              </Link>
             );
           })}
         </div>

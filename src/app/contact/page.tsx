@@ -9,8 +9,8 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function Contact() {
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center bg-background px-4 md:px-6">
-      <div className="w-full max-w-md space-y-6">
+    <div className="flex min-h-dvh flex-col items-center justify-center bg-muted px-4 md:px-6">
+      <div className="my-12 w-full max-w-md flex-1 space-y-6">
         <div className="text-center">
           <h1 className="text-3xl font-bold">Entre em Contato</h1>
           <p className="text-muted-foreground">
@@ -18,7 +18,7 @@ export default function Contact() {
             abaixo ou entre em contato nas mídias sociais.
           </p>
         </div>
-        <Card className="pt-6">
+        <Card className="pt-6 shadow-shape">
           <CardContent className="space-y-4">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
@@ -66,6 +66,11 @@ export default function Contact() {
           </Link>
         </div>
       </div>
+      <footer className="w-full bg-background py-6 text-center text-sm text-foreground">
+        <div className="container">
+          &copy; 2024 vt-code. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }

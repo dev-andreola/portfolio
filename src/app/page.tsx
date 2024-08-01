@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="">
-      <section id="hero" className="bg-muted">
-        <div className="mx-auto w-full max-w-6xl border-y py-6 md:py-24 lg:py-32">
+      <section id="hero" className="border-b bg-muted">
+        <div className="mx-auto w-full max-w-6xl py-6 md:py-24 lg:py-32">
           <div className="container space-y-10 px-4 md:px-6 xl:space-y-16">
             <div className="grid gap-4 px-4 md:grid-cols-2 md:gap-16">
               <div className="flex flex-col items-center space-y-4 md:items-end">
@@ -15,8 +15,8 @@ export default function Home() {
                   <Image
                     src={"/art.png"}
                     fill
-                    alt="Vitor Andreola"
-                    className="rounded-xl object-cover"
+                    alt="Wallpaper"
+                    className="rounded-xl object-cover shadow-shape"
                   />
                 </div>
               </div>
@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="about" className="w-full">
+      <section id="about" className="w-full border-b">
         <div className="mx-auto max-w-6xl py-12 md:py-24">
           <div className="container grid gap-8 px-4 md:grid-cols-2 md:gap-16 md:px-6">
             <div>
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="bg-muted py-6 text-center text-sm text-muted-foreground">
+      <footer className="bordet-t bg-muted py-6 text-center text-sm text-muted-foreground">
         <div className="container">
           &copy; 2024 vt-code. All rights reserved.
         </div>

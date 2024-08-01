@@ -67,7 +67,7 @@ export default function Blog() {
           {postList.map((post) => {
             return (
               <Link href={post.href} key={post.title}>
-                <Card>
+                <Card className="shadow-shape">
                   <CardHeader>
                     <Image
                       src={"/art.png"}
