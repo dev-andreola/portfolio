@@ -10,6 +10,24 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { ThemeToggle } from "./theme-toggle-button";
 
+const navbarItem = [
+  {
+    title: "Projetos",
+    href: "#",
+    icon: FolderIcon,
+  },
+  {
+    title: "Blog",
+    href: "#",
+    icon: UserIcon,
+  },
+  {
+    title: "Contato",
+    href: "#",
+    icon: MailIcon,
+  },
+];
+
 export default function Navbar() {
   return (
     <header className="border-b">
@@ -25,27 +43,19 @@ export default function Navbar() {
           </h1>
         </Link>
         <nav className="hidden items-center gap-4 md:flex">
-          <Link
-            href="#"
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            About
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            Projects
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium underline-offset-4 hover:underline"
-            prefetch={false}
-          >
-            Contact
-          </Link>
+          {navbarItem.map((item) => {
+            return (
+              <Button variant={"ghost"} key={item.title}>
+                <Link
+                  href={item.href}
+                  className="text-sm font-medium"
+                  prefetch={false}
+                >
+                  {item.title}
+                </Link>
+              </Button>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-4">
           <ThemeToggle />
@@ -58,30 +68,19 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="md:hidden">
               <nav className="grid gap-4 py-6">
-                <Link
-                  href="#"
-                  className="flex items-center gap-2 text-lg font-medium"
-                  prefetch={false}
-                >
-                  <UserIcon className="h-5 w-5" />
-                  About
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-2 text-lg font-medium"
-                  prefetch={false}
-                >
-                  <FolderIcon className="h-5 w-5" />
-                  Projects
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-2 text-lg font-medium"
-                  prefetch={false}
-                >
-                  <MailIcon className="h-5 w-5" />
-                  Contact
-                </Link>
+                {navbarItem.map((item) => {
+                  return (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      className="flex items-center gap-2 text-lg font-medium"
+                      prefetch={false}
+                    >
+                      <item.icon className="size-5" />
+                      {item.title}
+                    </Link>
+                  );
+                })}
               </nav>
             </SheetContent>
           </Sheet>
