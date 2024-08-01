@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -81,11 +82,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="bordet-t bg-muted py-6 text-center text-sm text-muted-foreground">
-        <div className="container">
-          &copy; 2024 vt-code. All rights reserved.
-        </div>
-      </footer>
+      <Footer isMuted />
     </div>
   );
 }
