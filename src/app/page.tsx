@@ -30,11 +30,9 @@ export default function Home() {
                   reiciendis omnis, ea qui.
                 </p>
                 <div className="mt-6">
-                  <Button variant={"default"}>
-                    <Link href="#" prefetch={false}>
-                      Ver Projetos
-                    </Link>
-                  </Button>
+                  <Link href="/projects" prefetch={false}>
+                    <Button variant={"default"}>Ver Projetos</Button>
+                  </Link>
                 </div>
               </div>
             </div>

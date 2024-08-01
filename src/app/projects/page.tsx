@@ -73,7 +73,7 @@ export default function Projects() {
                     alt="Project"
                     width={300}
                     height={400}
-                    className="h-48 w-full rounded-t-md object-cover"
+                    className="h-48 w-full rounded-t-xl object-cover"
                   />
                   <CardContent className="p-4">
                     <h3 className="mb-2 text-lg font-semibold">

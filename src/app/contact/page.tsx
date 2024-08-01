@@ -14,14 +14,14 @@ export default function Contact() {
         <div className="text-center">
           <h1 className="text-3xl font-bold">Entre em Contato</h1>
           <p className="text-muted-foreground">
-            Tem alguma pergunta ou quer trabalhar conosco? Preencha o formulário
+            Tem alguma pergunta ou quer trabalhar comigo? Preencha o formulário
             abaixo ou entre em contato nas mídias sociais.
           </p>
         </div>
         <Card className="pt-6 shadow-shape">
           <CardContent className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Nome</Label>
               <Input id="name" placeholder="Vitor Andreola" />
             </div>
             <div className="grid gap-2">
