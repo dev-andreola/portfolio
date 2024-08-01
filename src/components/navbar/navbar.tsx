@@ -38,9 +38,9 @@ export default function Navbar() {
           prefetch={false}
         >
           <LampDesk strokeWidth={2} />
-          <h1 className="font-custom text-2xl font-semibold tracking-tighter">
+          <h2 className="font-custom text-2xl font-semibold tracking-tighter">
             vt-code
-          </h1>
+          </h2>
         </Link>
         <nav className="hidden items-center gap-4 md:flex">
           {navbarItem.map((item) => {
