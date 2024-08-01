@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { ThemeToggle } from "./theme-toggle-button";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navbarItem = [
   {
@@ -33,6 +34,11 @@ const navbarItem = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsSheetOpen(false);
+  };
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b bg-background shadow-lg">
@@ -48,48 +54,46 @@ export default function Navbar() {
           </h2>
         </Link>
         <nav className="hidden items-center gap-4 md:flex">
-          {navbarItem.map((item) => {
-            return (
-              <Button
-                asChild
-                variant={pathname === item.href ? "outline" : "ghost"}
-                key={item.title}
+          {navbarItem.map((item) => (
+            <Button
+              asChild
+              variant={pathname === item.href ? "outline" : "ghost"}
+              key={item.title}
+            >
+              <Link
+                href={item.href}
+                className="text-sm font-medium"
+                prefetch={false}
+                onClick={handleLinkClick}
               >
-                <Link
-                  href={item.href}
-                  className="text-sm font-medium"
-                  prefetch={false}
-                >
-                  {item.title}
-                </Link>
-              </Button>
-            );
-          })}
+                {item.title}
+              </Link>
+            </Button>
+          ))}
         </nav>
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
                 <MenuIcon className="size-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="md:hidden">
+            <SheetContent side="right">
               <nav className="grid gap-4 py-6">
-                {navbarItem.map((item) => {
-                  return (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      className="flex items-center gap-2 text-lg font-medium"
-                      prefetch={false}
-                    >
-                      <item.icon className="size-5" />
-                      {item.title}
-                    </Link>
-                  );
-                })}
+                {navbarItem.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className="flex items-center gap-2 text-lg font-medium"
+                    prefetch={false}
+                    onClick={handleLinkClick}
+                  >
+                    <item.icon className="size-5" />
+                    {item.title}
+                  </Link>
+                ))}
               </nav>
             </SheetContent>
           </Sheet>
