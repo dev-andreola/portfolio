@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa6";
 import Footer from "@/components/footer";
 
 export default function Contact() {
@@ -43,15 +42,8 @@ export default function Contact() {
           </Card>
           <div className="flex justify-center gap-4">
             <Link
-              href="#"
-              className="text-muted-foreground hover:text-primary"
-              prefetch={false}
-            >
-              <FaXTwitter className="size-6" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="#"
+              target="_blank"
+              href="https://www.linkedin.com/in/dev-andreola/"
               className="text-muted-foreground hover:text-primary"
               prefetch={false}
             >
@@ -59,7 +51,8 @@ export default function Contact() {
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="#"
+              target="_blank"
+              href="https://github.com/dev-andreola"
               className="text-muted-foreground hover:text-primary"
               prefetch={false}
             >
