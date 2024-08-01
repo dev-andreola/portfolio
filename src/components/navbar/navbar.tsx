@@ -30,7 +30,7 @@ const navbarItem = [
 
 export default function Navbar() {
   return (
-    <header className="border-b">
+    <header className="fixed left-0 top-0 z-50 w-full border-b bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="#"
