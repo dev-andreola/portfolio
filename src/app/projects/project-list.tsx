@@ -1,5 +1,7 @@
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Project } from "@/lib/types";
+import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,17 +19,39 @@ export default function ProjectList({ projects }: ProjectListProps) {
             prefetch={false}
             target="_blank"
           >
-            <Card className="h-full shadow-shape">
+            <Card className="relative h-full shadow-shape">
               <Image
                 src={project.imageUrl}
                 alt={`Thumbnail do projeto ${project.title}`}
                 width={300}
                 height={400}
-                className="h-48 w-full rounded-t-xl object-cover object-top"
+                className="h-28 w-full rounded-t-xl object-cover object-top"
               />
-              <CardContent className="p-4">
-                <h3 className="mb-2 text-lg font-semibold">{project.title}</h3>
-                <p className="line-clamp-4 text-sm text-muted-foreground">
+              <div className="absolute right-0 top-0">
+                <Badge
+                  variant={"secondary"}
+                  className="mr-2 mt-2 flex flex-row-reverse items-center gap-1 hover:bg-secondary"
+                >
+                  <Star size={20} />
+                  <span className="ml-1">22</span>
+                </Badge>
+              </div>
+              <CardContent className="space-y-1 p-4">
+                <h3 className="text-lg font-semibold">{project.title}</h3>
+                <div className="overflow-x-hidden pb-2">
+                  <div className="flex gap-3">
+                    <Badge variant={"secondary"} className="text-nowrap">
+                      React
+                    </Badge>
+                    <Badge variant={"secondary"} className="text-nowrap">
+                      PostgreSQL
+                    </Badge>
+                    <Badge variant={"secondary"} className="text-nowrap">
+                      Another one
+                    </Badge>
+                  </div>
+                </div>
+                <p className="line-clamp-3 text-sm text-muted-foreground">
                   {project.desc}
                 </p>
               </CardContent>
