@@ -19,8 +19,16 @@ import axios from "axios";
 import ProjectList from "./project-list";
 import SearchInput from "./search-input";
 
-export default async function Projects() {
-  const response = await axios.get("http://localhost:3000/api/projects");
+export default async function Projects({
+  searchParams,
+}: {
+  searchParams?: { search?: string };
+}) {
+  const response = await axios.get("http://localhost:3000/api/projects", {
+    params: {
+      search: searchParams?.search,
+    },
+  });
   const projects = response.data;
 
   return (

@@ -4,13 +4,12 @@ import { Input } from "@/components/ui/input";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function SearchInput() {
-  // eslint-disable-next-line no-unused-vars
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
     const searchString = e.currentTarget.value;
 
     if (searchString) {
@@ -27,7 +26,7 @@ export default function SearchInput() {
       <Input
         type="search"
         placeholder="Buscar projetos..."
-        className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground placeholder:text-foreground"
+        className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground"
         onChange={handleChange}
       />
     </div>

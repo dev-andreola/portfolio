@@ -17,12 +17,6 @@ export async function GET(req: Request) {
               mode: "insensitive",
             },
           },
-          {
-            desc: {
-              contains: search,
-              mode: "insensitive",
-            },
-          },
         ],
       },
       orderBy: { createdAt: "desc" },
