@@ -37,12 +37,6 @@ export function ThemeToggle() {
         >
           Escuro
         </DropdownMenuItem>
-        <DropdownMenuItem
-          className="cursor-pointer hover:bg-zinc-100"
-          onClick={() => setTheme("system")}
-        >
-          Sistema
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
