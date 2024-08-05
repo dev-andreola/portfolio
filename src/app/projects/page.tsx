@@ -34,8 +34,8 @@ export default async function Projects({
   return (
     <div>
       <main className="border-b bg-muted">
-        <div className="container mx-auto max-w-6xl py-6 md:py-12">
-          <div className="mb-8 flex flex-col items-center justify-between space-y-2 md:mb-10 md:flex-row lg:mb-12">
+        <div className="md:px-auto mx-auto max-w-6xl px-4 py-6 md:container md:py-12">
+          <div className="mx-auto mb-8 flex max-w-6xl flex-col items-center justify-between space-y-2 md:mb-10 md:flex-row lg:mb-12">
             <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Meus Projetos
             </h1>

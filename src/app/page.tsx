@@ -10,7 +10,7 @@ export default function Home() {
       <section id="hero" className="border-b bg-muted">
         <div className="mx-auto w-full max-w-6xl py-6 md:py-24 lg:py-32">
           <div className="container space-y-10 px-4 md:px-6 xl:space-y-16">
-            <div className="grid gap-4 px-4 md:grid-cols-2 md:gap-16">
+            <div className="grid gap-4 md:grid-cols-2 md:gap-16 md:px-4">
               <div className="flex flex-col items-center space-y-4 md:items-end">
                 <div className="relative h-[250px] w-full">
                   <Image
