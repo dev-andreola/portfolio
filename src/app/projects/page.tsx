@@ -1,5 +1,4 @@
 import Footer from "@/components/footer";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -18,6 +17,7 @@ import {
 import axios from "axios";
 
 import ProjectList from "./project-list";
+import SearchInput from "./search-input";
 
 export default async function Projects() {
   const response = await axios.get("http://localhost:3000/api/projects");
@@ -33,13 +33,7 @@ export default async function Projects() {
             </h1>
             <div className="flex w-full gap-4 md:w-auto">
               <div className="mx-auto flex w-full max-w-xl items-center gap-2">
-                <div className="w-2/4 flex-1">
-                  <Input
-                    type="text"
-                    placeholder="Buscar projetos..."
-                    className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground placeholder:text-foreground"
-                  />
-                </div>
+                <SearchInput />
                 <div className="w-2/4 flex-1">
                   <Select>
                     <SelectTrigger className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground">
