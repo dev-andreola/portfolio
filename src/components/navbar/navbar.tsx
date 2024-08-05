@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b bg-background shadow-lg">
+    <header className="fixed left-0 top-0 z-50 w-screen border-b bg-background shadow-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="/"
