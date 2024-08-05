@@ -5,9 +5,26 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get("page") || "1", 10);
+    const search = searchParams.get("search") || "";
     const pageSize = 8;
 
     const projects = await prisma.project.findMany({
+      where: {
+        OR: [
+          {
+            title: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+          {
+            desc: {
+              contains: search,
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
       orderBy: { createdAt: "desc" },
       skip: (page - 1) * pageSize,
       take: pageSize,
