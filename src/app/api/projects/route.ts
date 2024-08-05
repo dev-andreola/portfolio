@@ -50,10 +50,10 @@ export async function POST(req: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const { id, title, desc, imageUrl, href } = await request.json();
+    const { id, title, desc, imageUrl, tags, href } = await request.json();
     const updatedProject = await prisma.project.update({
       where: { id },
-      data: { title, desc, imageUrl, href },
+      data: { title, desc, imageUrl, href, tags },
     });
     return NextResponse.json(updatedProject);
   } catch (error) {

@@ -40,15 +40,17 @@ export default function ProjectList({ projects }: ProjectListProps) {
                 <h3 className="text-lg font-semibold">{project.title}</h3>
                 <div className="overflow-x-hidden pb-2">
                   <div className="flex gap-3">
-                    <Badge variant={"secondary"} className="text-nowrap">
-                      React
-                    </Badge>
-                    <Badge variant={"secondary"} className="text-nowrap">
-                      PostgreSQL
-                    </Badge>
-                    <Badge variant={"secondary"} className="text-nowrap">
-                      Another one
-                    </Badge>
+                    {project.tags.map((tag) => {
+                      return (
+                        <Badge
+                          key={tag}
+                          variant={"secondary"}
+                          className="text-nowrap"
+                        >
+                          {tag}
+                        </Badge>
+                      );
+                    })}
                   </div>
                 </div>
                 <p className="line-clamp-3 text-sm text-muted-foreground">
