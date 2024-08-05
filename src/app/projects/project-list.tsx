@@ -19,7 +19,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
             prefetch={false}
             target="_blank"
           >
-            <Card className="relative h-full shadow-shape">
+            <Card className="hover-effect relative h-full shadow-shape">
               <Image
                 src={project.imageUrl}
                 alt={`Thumbnail do projeto ${project.title}`}
