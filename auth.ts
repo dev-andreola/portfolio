@@ -7,6 +7,9 @@ export const {
   handlers: { GET, POST },
   auth,
 } = NextAuth({
+  pages: {
+    signIn: "/login",
+  },
   providers: [
     Credentials({
       credentials: {
