@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+import db from "@/lib/prisma";
 
 export async function GET(req: Request) {
   try {
@@ -8,7 +8,7 @@ export async function GET(req: Request) {
     const search = searchParams.get("search") || "";
     const pageSize = 8;
 
-    const projects = await prisma.project.findMany({
+    const projects = await db.project.findMany({
       where: {
         OR: [
           {
@@ -35,9 +35,9 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const { title, desc, imageUrl, href } = await req.json();
-    const newProject = await prisma.project.create({
-      data: { title, desc, imageUrl, href },
+    const { title, desc, tags, imageUrl, href } = await req.json();
+    const newProject = await db.project.create({
+      data: { title, desc, imageUrl, href, tags },
     });
     return NextResponse.json(newProject);
   } catch (error) {
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
 export async function PUT(request: Request) {
   try {
     const { id, title, desc, imageUrl, tags, href } = await request.json();
-    const updatedProject = await prisma.project.update({
+    const updatedProject = await db.project.update({
       where: { id },
       data: { title, desc, imageUrl, href, tags },
     });
@@ -67,7 +67,7 @@ export async function PUT(request: Request) {
 export async function DELETE(request: Request) {
   try {
     const { id } = await request.json();
-    await prisma.project.delete({
+    await db.project.delete({
       where: { id },
     });
     return NextResponse.json({ message: "Project deleted successfully" });
