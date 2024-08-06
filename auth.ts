@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import db from "@/lib/prisma";
+import { compareSync } from "bcrypt-ts";
 
 export const {
   handlers: { GET, POST },
@@ -7,8 +9,34 @@ export const {
 } = NextAuth({
   providers: [
     Credentials({
-      async authorize() {
-        return { id: "1", name: "Fulano de Tal", email: "lala@lala.com" };
+      credentials: {
+        email: {},
+        password: {},
+      },
+      async authorize(credentials) {
+        const email = credentials.email as string;
+        const password = credentials.password as string;
+
+        if (!email || !password) {
+          return null;
+        }
+
+        const user = await db.user.findUnique({
+          where: {
+            email: email,
+          },
+        });
+
+        if (!user) {
+          return null;
+        }
+
+        const matches = compareSync(password, user.password ?? "");
+
+        if (matches) {
+          return { id: user.id, name: user.name, email: user.email };
+        }
+        return null;
       },
     }),
   ],
