@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator";
 
 export default function RegisterForm() {
   return (
-    <div className="mt-12 h-full">
+    <div className="mt-12 h-full px-4">
       <Card className="mx-auto max-w-96 shadow-shape">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

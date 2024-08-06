@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="about" className="w-full border-b">
+      <section id="about" className="w-full border-b bg-background">
         <div className="mx-auto max-w-6xl py-12 md:py-24">
           <div className="container grid gap-8 px-4 md:grid-cols-2 md:gap-16 md:px-6">
             <div>

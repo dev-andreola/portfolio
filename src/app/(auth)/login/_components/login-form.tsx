@@ -13,33 +13,24 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import register from "../_actions/register";
-import { UserPlus } from "lucide-react";
+import { UserRoundSearch } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
-export default function RegisterForm() {
+export default function LoginForm() {
   return (
-    <div className="mt-12 h-full">
+    <div className="h-full bg-muted px-4 pt-12">
       <Card className="mx-auto max-w-96 shadow-shape">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <UserPlus />
-            <h1 className="text-lg">Cadastre-se</h1>
+            <UserRoundSearch />
+            <h1 className="text-lg">Login</h1>
           </CardTitle>
-          <CardDescription>Crie uma conta gratuitamente</CardDescription>
+          <CardDescription>Entre com email e senha</CardDescription>
         </CardHeader>
         <Separator className="mb-4" />
         <CardContent>
           <form action={register} className="text-left">
             <div className="space-y-4">
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="name">Nome</Label>
-                <Input
-                  name="name"
-                  type="name"
-                  id="name"
-                  placeholder="Fulano de Tal"
-                />
-              </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -60,7 +51,7 @@ export default function RegisterForm() {
               </div>
             </div>
             <Button size={"lg"} type="submit" className="mt-4 w-full">
-              Registrar
+              Entrar
             </Button>
           </form>
           <Link
@@ -68,9 +59,9 @@ export default function RegisterForm() {
               buttonVariants({ variant: "link", size: "sm" }),
               "mx-auto mt-1 w-full text-center",
             )}
-            href="/login"
+            href="/register"
           >
-            Já possui conta?
+            Não possui conta?
           </Link>
         </CardContent>
       </Card>

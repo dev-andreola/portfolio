@@ -1,10 +1,10 @@
 import React from "react";
-import RegisterForm from "./_components/register-form";
+import LoginForm from "./_components/login-form";
 
 export default function LoginPage() {
   return (
-    <div className="">
-      <RegisterForm />
+    <div className="min-h-full">
+      <LoginForm />
     </div>
   );
 }
