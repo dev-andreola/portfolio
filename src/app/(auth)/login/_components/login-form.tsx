@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import register from "../_actions/register";
+import login from "../_actions/login";
 import { UserRoundSearch } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -29,7 +29,7 @@ export default function LoginForm() {
         </CardHeader>
         <Separator className="mb-4" />
         <CardContent>
-          <form action={register} className="text-left">
+          <form action={login} className="text-left">
             <div className="space-y-4">
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
