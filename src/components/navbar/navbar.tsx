@@ -25,9 +25,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Separator } from "../ui/separator";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import logout from "@/app/_actions/logout";
 
 const navbarItem = [
   {
@@ -56,6 +55,8 @@ export default function Navbar() {
   const handleLinkClick = () => {
     setIsSheetOpen(false);
   };
+
+  const handleLogoutClick = () => signOut();
 
   return (
     <header className="fixed left-0 top-0 z-50 w-screen border-b bg-background shadow-lg">
@@ -171,7 +172,7 @@ export default function Navbar() {
                   <Button
                     variant="ghost"
                     className="flex w-full items-center justify-start gap-2 text-lg font-medium"
-                    onClick={logout}
+                    onClick={handleLogoutClick}
                   >
                     <LogOutIcon className="size-5" />
                     <span className="block">Sair da conta</span>
