@@ -12,13 +12,74 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import register from "../_actions/register";
+import registerAction from "../_actions/register-action";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { UserPlus } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { z } from "zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
+
+const registerSchema = z.object({
+  name: z
+    .string()
+    .min(3, "O campo nome deve ter no mínimo 3 caracteres")
+    .refine(
+      (name) => name.trim().split(" ").length > 1,
+      "Insira o nome e sobrenome.",
+    ),
+  email: z.string().email("Insira um email válido"),
+  password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
+});
+
+type registerSchema = z.infer<typeof registerSchema>;
 
 export default function RegisterForm() {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<registerSchema>({
+    resolver: zodResolver(registerSchema),
+    mode: "onSubmit",
+  });
+
+  const onSubmit = async (data: registerSchema) => {
+    setIsLoading(true);
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+
+    try {
+      await registerAction(formData).then(() => {
+        console.log("SUCCESS!");
+
+        toast.success("Cadastro feito com sucesso!", {
+          description: "Utilize as suas credenciais na página de login.",
+        });
+        router.push("/");
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message);
+        console.error(error.message);
+      } else {
+        toast.error("Ocorreu um erro inesperado.");
+        console.error(error);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="mt-12 h-full px-4">
+    <div className="my-12 h-full px-4">
       <Card className="mx-auto max-w-96 shadow-shape">
         <CardHeader>
           <CardTitle>
@@ -31,37 +92,61 @@ export default function RegisterForm() {
         </CardHeader>
         <Separator className="mb-4" />
         <CardContent>
-          <form action={register} className="text-left">
+          <form
+            noValidate
+            onSubmit={handleSubmit(onSubmit)}
+            className="text-left"
+          >
             <div className="space-y-4">
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="name">Nome</Label>
                 <Input
-                  name="name"
-                  type="name"
-                  id="name"
+                  type="text"
                   placeholder="Fulano de Tal"
+                  {...register("name")}
+                  disabled={isLoading}
                 />
+                {errors.name && (
+                  <span className="text-sm text-red-700">
+                    <p className="text-left">{errors.name.message}</p>
+                  </span>
+                )}
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input
-                  name="email"
                   type="email"
-                  id="email"
                   placeholder="email@exemplo.com"
+                  {...register("email")}
+                  disabled={isLoading}
                 />
+                {errors.email && (
+                  <span className="text-sm text-red-700">
+                    <p className="text-left">{errors.email.message}</p>
+                  </span>
+                )}
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="password">Senha</Label>
                 <Input
-                  name="password"
                   type="password"
-                  id="password"
                   placeholder="********"
+                  {...register("password")}
+                  disabled={isLoading}
                 />
+                {errors.password && (
+                  <span className="text-sm text-red-700">
+                    <p className="text-left">{errors.password.message}</p>
+                  </span>
+                )}
               </div>
             </div>
-            <Button size={"lg"} type="submit" className="mt-4 w-full">
+            <Button
+              size={"lg"}
+              disabled={isLoading}
+              type="submit"
+              className="mt-4 w-full"
+            >
               Registrar
             </Button>
           </form>
