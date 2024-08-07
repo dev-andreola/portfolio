@@ -69,7 +69,7 @@ export default function RegisterForm() {
       });
     } catch (error) {
       if (error instanceof Error) {
-        toast.error(error.message);
+        toast.error("Esse email já está registrado!");
         console.error(error.message);
       } else {
         toast.error("Ocorreu um erro inesperado.");
