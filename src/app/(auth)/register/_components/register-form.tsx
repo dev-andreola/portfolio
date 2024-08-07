@@ -25,13 +25,15 @@ import { toast } from "sonner";
 const registerSchema = z.object({
   name: z
     .string()
-    .min(3, "O campo nome deve ter no mínimo 3 caracteres")
+    .min(3, "Insira um nome válido")
+    .max(26, "Nome não pode ter mais de 26 caracteres")
     .refine(
       (name) => name.trim().split(" ").length > 1,
       "Insira o nome e sobrenome.",
     ),
+
   email: z.string().email("Insira um email válido"),
-  password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
+  password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres"),
 });
 
 type registerSchema = z.infer<typeof registerSchema>;
@@ -79,7 +81,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="my-12 h-full px-4">
+    <div className="h-full px-4">
       <Card className="mx-auto max-w-96 shadow-shape">
         <CardHeader>
           <CardTitle>
@@ -99,7 +101,7 @@ export default function RegisterForm() {
           >
             <div className="space-y-4">
               <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="name">Nome</Label>
+                <Label htmlFor="name">Nome e sobrenome</Label>
                 <Input
                   type="text"
                   placeholder="Fulano de Tal"

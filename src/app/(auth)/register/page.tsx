@@ -16,7 +16,7 @@ export default function RegisterPage() {
   }, [session.status, router]);
 
   return (
-    <div className="">
+    <div className="py-8">
       <RegisterForm />
     </div>
   );
