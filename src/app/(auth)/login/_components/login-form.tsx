@@ -59,7 +59,9 @@ export default function LoginForm() {
           reset();
         }
         if (res && !res.error) {
-          toast.success("Login efetuado com sucesso!");
+          toast.success("Login efetuado com sucesso!", {
+            description: "Agora você pode interagir com as publicações.",
+          });
         }
       });
     } catch (error) {

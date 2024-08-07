@@ -27,6 +27,7 @@ import { Separator } from "../ui/separator";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { toast } from "sonner";
 
 const navbarItem = [
   {
@@ -56,7 +57,13 @@ export default function Navbar() {
     setIsSheetOpen(false);
   };
 
-  const handleLogoutClick = () => signOut();
+  const handleLogoutClick = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      toast.error("Houve um erro inseperado!");
+    }
+  };
 
   return (
     <header className="fixed left-0 top-0 z-50 w-screen border-b bg-background shadow-lg">
