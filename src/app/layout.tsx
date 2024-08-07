@@ -39,7 +39,7 @@ export default function RootLayout({
           >
             <Navbar />
             <div className="pt-[62px]">{children}</div>
-            <Toaster />
+            <Toaster duration={3000} />
           </ThemeProvider>
         </SessionProvider>
       </body>

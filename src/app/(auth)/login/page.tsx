@@ -16,7 +16,7 @@ export default function LoginPage() {
   }, [session.status, router]);
 
   return (
-    <div className="min-h-full">
+    <div className="py-8">
       <LoginForm />
     </div>
   );

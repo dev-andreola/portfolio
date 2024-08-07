@@ -12,40 +12,66 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-// import login from "../_actions/login";
 import { UserRoundSearch } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast } from "sonner";
+
+const loginSchema = z.object({
+  email: z.string().email("Insira um email válido"),
+  password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres"),
+});
+
+type loginSchema = z.infer<typeof loginSchema>;
+
 export default function LoginForm() {
-  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<loginSchema>({
+    resolver: zodResolver(loginSchema),
+    mode: "onSubmit",
+  });
+
+  const onSubmit = async (data: loginSchema) => {
     setIsLoading(true);
 
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email");
-    const password = formData.get("password");
+    const email = data.email;
+    const password = data.password;
 
-    signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-      callbackUrl: "/",
-    })
-      .then((res) => {
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl: "/",
+      }).then((res) => {
         if (res && res.error === "CredentialsSignin") {
-          setError("Login e/ou senha inválidos!");
+          toast.error("Login e/ou senha inválido(s)!");
+          reset();
         }
-        setIsLoading(false);
-      })
-      .catch((e) => console.log(e));
-  }
+        if (res && !res.error) {
+          toast.success("Login efetuado com sucesso!");
+        }
+      });
+    } catch (error) {
+      toast.error("Ocorreu um erro inesperado!");
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <div className="h-full bg-muted px-4 pt-12">
+    <div className="h-full bg-muted px-4">
       <Card className="mx-auto max-w-96 shadow-shape">
         <CardHeader>
           <CardTitle>
@@ -58,30 +84,44 @@ export default function LoginForm() {
         </CardHeader>
         <Separator className="mb-4" />
         <CardContent>
-          <form className="text-left" onSubmit={handleSubmit}>
+          <form
+            noValidate
+            className="text-left"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className="space-y-4">
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input
-                  name="email"
+                  disabled={isLoading}
+                  {...register("email")}
                   type="email"
                   id="email"
                   placeholder="email@exemplo.com"
                 />
+                {errors.email && (
+                  <span className="text-sm text-red-700">
+                    <p className="text-left">{errors.email.message}</p>
+                  </span>
+                )}
               </div>
               <div className="grid w-full max-w-sm items-center gap-1.5">
                 <Label htmlFor="password">Senha</Label>
                 <Input
-                  name="password"
+                  disabled={isLoading}
+                  {...register("password")}
                   type="password"
                   id="password"
                   placeholder="********"
                 />
+                {errors.password && (
+                  <span className="text-sm text-red-700">
+                    <p className="text-left">{errors.password.message}</p>
+                  </span>
+                )}
               </div>
             </div>
-            {error && (
-              <p className="mt-4 text-center text-sm text-red-700">{error}</p>
-            )}
+
             <Button
               disabled={isLoading}
               size={"lg"}
