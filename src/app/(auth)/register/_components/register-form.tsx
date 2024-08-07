@@ -21,9 +21,11 @@ export default function RegisterForm() {
     <div className="mt-12 h-full px-4">
       <Card className="mx-auto max-w-96 shadow-shape">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <UserPlus />
-            <h1 className="text-lg">Cadastre-se</h1>
+          <CardTitle>
+            <div className="flex items-center gap-2">
+              <UserPlus />
+              <h1 className="text-lg">Cadastre-se</h1>
+            </div>
           </CardTitle>
           <CardDescription>Crie uma conta gratuitamente</CardDescription>
         </CardHeader>

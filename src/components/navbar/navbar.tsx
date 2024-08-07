@@ -14,6 +14,7 @@ import Link from "next/link";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -22,6 +23,7 @@ import { ThemeToggle } from "./theme-toggle-button";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Separator } from "../ui/separator";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 const navbarItem = [
   {
@@ -93,6 +95,9 @@ export default function Navbar() {
             <SheetContent side="right">
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
+                <SheetDescription>
+                  <VisuallyHidden.Root></VisuallyHidden.Root>
+                </SheetDescription>
               </SheetHeader>
               <nav className="grid gap-4 py-6">
                 <div className="flex items-center justify-between">

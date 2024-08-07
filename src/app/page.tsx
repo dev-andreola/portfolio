@@ -16,6 +16,8 @@ export default function Home() {
                   <Image
                     src={"/art.png"}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority
                     alt="Wallpaper"
                     className="rounded-xl object-cover shadow-shape"
                   />
