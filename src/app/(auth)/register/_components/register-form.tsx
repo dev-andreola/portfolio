@@ -26,12 +26,7 @@ const registerSchema = z.object({
   name: z
     .string()
     .min(3, "Insira um nome válido")
-    .max(26, "Nome não pode ter mais de 26 caracteres")
-    .refine(
-      (name) => name.trim().split(" ").length > 1,
-      "Insira o nome e sobrenome.",
-    ),
-
+    .max(26, "Nome não pode ter mais de 26 caracteres"),
   email: z.string().email("Insira um email válido"),
   password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres"),
 });
@@ -69,10 +64,10 @@ export default function RegisterForm() {
       });
     } catch (error) {
       if (error instanceof Error) {
-        toast.error("Esse email já está registrado!");
+        toast.warning("Esse email já está registrado!");
         console.error(error.message);
       } else {
-        toast.error("Ocorreu um erro inesperado.");
+        toast.warning("Ocorreu um erro inesperado.");
         console.error(error);
       }
     } finally {
@@ -101,7 +96,7 @@ export default function RegisterForm() {
           >
             <div className="space-y-4">
               <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="name">Nome e sobrenome</Label>
+                <Label htmlFor="name">Nome</Label>
                 <Input
                   type="text"
                   placeholder="Fulano de Tal"

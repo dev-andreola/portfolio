@@ -56,7 +56,7 @@ export default function LoginForm() {
         callbackUrl: "/",
       }).then((res) => {
         if (res && res.error === "CredentialsSignin") {
-          toast.error("Login e/ou senha inválido(s)!");
+          toast.warning("Login e/ou senha inválido(s)!");
           reset();
         }
         if (res && !res.error) {
@@ -66,7 +66,7 @@ export default function LoginForm() {
         }
       });
     } catch (error) {
-      toast.error("Ocorreu um erro inesperado!");
+      toast.warning("Ocorreu um erro inesperado!");
       console.log(error);
     } finally {
       setIsLoading(false);

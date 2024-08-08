@@ -122,7 +122,8 @@ export default function Navbar() {
                         />
                         <AvatarFallback>
                           {data?.user?.name?.split(" ")[0][0]}
-                          {data?.user?.name?.split(" ")[1][0]}
+                          {data?.user?.name?.includes(" ") &&
+                            data?.user?.name?.split(" ")[1][0]}
                         </AvatarFallback>
                       </Avatar>
 
