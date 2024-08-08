@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
+import { SiGithub, SiGoogle } from "react-icons/si";
 
 const loginSchema = z.object({
   email: z.string().email("Insira um email válido"),
@@ -85,7 +86,7 @@ export default function LoginForm() {
           <CardDescription>Entre com email e senha</CardDescription>
         </CardHeader>
         <Separator className="mb-4" />
-        <CardContent>
+        <CardContent className="pb-0">
           <form
             noValidate
             className="text-left"
@@ -102,7 +103,7 @@ export default function LoginForm() {
                   placeholder="email@exemplo.com"
                 />
                 {errors.email && (
-                  <span className="text-sm text-red-700">
+                  <span className="text-sm text-destructive">
                     <p className="text-left">{errors.email.message}</p>
                   </span>
                 )}
@@ -117,7 +118,7 @@ export default function LoginForm() {
                   placeholder="********"
                 />
                 {errors.password && (
-                  <span className="text-sm text-red-700">
+                  <span className="text-sm text-destructive">
                     <p className="text-left">{errors.password.message}</p>
                   </span>
                 )}
@@ -143,6 +144,30 @@ export default function LoginForm() {
             Não possui conta?
           </Link>
         </CardContent>
+        <Separator className="my-2" />
+        <div className="flex items-center justify-between gap-2 p-4 pt-2">
+          <Button
+            disabled={isLoading}
+            className="flex-1 dark:border dark:bg-background dark:text-primary hover:dark:bg-muted"
+            onClick={() => signIn("github", { callbackUrl: "/" })}
+          >
+            <div className="flex items-center justify-center gap-1">
+              <SiGithub size={16} />
+              <span>Login com GitHub</span>
+            </div>
+          </Button>
+          <Button
+            disabled={isLoading}
+            variant={"outline"}
+            className="flex-1 dark:bg-primary dark:text-background hover:dark:bg-ring"
+            onClick={() => signIn("google", { callbackUrl: "/" })}
+          >
+            <div className="flex items-center justify-center gap-1">
+              <SiGoogle size={14} />
+              <span>Login com Google</span>
+            </div>
+          </Button>
+        </div>
       </Card>
     </div>
   );

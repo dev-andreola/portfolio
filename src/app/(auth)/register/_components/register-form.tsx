@@ -109,7 +109,7 @@ export default function RegisterForm() {
                   disabled={isLoading}
                 />
                 {errors.name && (
-                  <span className="text-sm text-red-700">
+                  <span className="text-sm text-destructive">
                     <p className="text-left">{errors.name.message}</p>
                   </span>
                 )}
@@ -123,7 +123,7 @@ export default function RegisterForm() {
                   disabled={isLoading}
                 />
                 {errors.email && (
-                  <span className="text-sm text-red-700">
+                  <span className="text-sm text-destructive">
                     <p className="text-left">{errors.email.message}</p>
                   </span>
                 )}
@@ -137,7 +137,7 @@ export default function RegisterForm() {
                   disabled={isLoading}
                 />
                 {errors.password && (
-                  <span className="text-sm text-red-700">
+                  <span className="text-sm text-destructive">
                     <p className="text-left">{errors.password.message}</p>
                   </span>
                 )}
