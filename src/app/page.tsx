@@ -1,6 +1,7 @@
 import Footer from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { FolderIcon, MailIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -28,13 +29,25 @@ export default function Home() {
                   Vitor Andreola
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  nobis ratione expedita nemo incidunt molestiae iusto
-                  reiciendis omnis, ea qui.
+                  Programador React e Next.js utilizando TypeScript,
+                  desenvolvendo aplicações web funcionais e eficientes.
                 </p>
-                <div className="mt-6">
+                <div className="mt-6 flex gap-4">
                   <Link href="/projects" prefetch={false}>
-                    <Button variant={"default"}>Ver Projetos</Button>
+                    <Button variant={"default"}>
+                      <div className="flex items-center gap-2">
+                        <FolderIcon className="size-4" />
+                        Ver Projetos
+                      </div>
+                    </Button>
+                  </Link>
+                  <Link href="/contact" prefetch={false}>
+                    <Button variant={"outline"}>
+                      <div className="flex items-center gap-2">
+                        <MailIcon className="size-4" />
+                        Contato
+                      </div>
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -50,28 +63,28 @@ export default function Home() {
                 Sobre Mim
               </h2>
               <p className="mt-4 text-muted-foreground md:text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Similique ipsa commodi quae minus cum ratione est quibusdam
-                magni sunt amet. Molestias voluptate molestiae consequatur ut
-                blanditiis ipsa iure nesciunt illum?
+                Sou de Minas Gerais, tenho 24 anos e sempre gostei de explorar a
+                criação digital, como imagens, vídeos e músicas. Em 2022,
+                iniciei meus estudos em programação, focando no front-end e no
+                design de interfaces.
               </p>
             </div>
             <div className="grid gap-4">
               <div className="grid gap-1">
                 <h3 className="text-lg font-bold">Habilidades</h3>
                 <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">TypeScript</Badge>
                   <Badge variant="secondary">React</Badge>
                   <Badge variant="secondary">Node.js</Badge>
-                  <Badge variant="secondary">MongoDB</Badge>
-                  <Badge variant="secondary">HTML/CSS</Badge>
-                  <Badge variant="secondary">JavaScript</Badge>
+                  <Badge variant="secondary">Next.js</Badge>
+                  <Badge variant="secondary">PostgreSQL</Badge>
                 </div>
               </div>
               <div className="grid gap-1">
                 <h3 className="text-lg font-bold">Experiência</h3>
                 <p className="text-muted-foreground">
-                  1+ ano de experiência como desenvolvedor web freelancer,
-                  desenvolvendo websites para profissionais autônomos.
+                  Experiência como desenvolvedor web freelancer, desenvolvendo
+                  websites para profissionais autônomos.
                 </p>
               </div>
               <div className="grid gap-1">
