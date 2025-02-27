@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "title": "New View VR",
+    "desc": "Landing page para uma marca fictícia de realidade virtual, desenvolvida para explorar conceitos de UI e responsividade, garantindo uma experiência visual imersiva e adaptável a diferentes dispositivos.",
+    "tags": ["JavaScript", "React", "Sass"],
+    "imageUrl": "/new-view.png",
+    "href": "https://newview.vercel.app",
+    "createdAt": "2023-11-19",
+    "repo": "https://github.com/dev-andreola/new-view"
+  }
+]

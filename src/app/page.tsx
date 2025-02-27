@@ -1,4 +1,3 @@
-import Footer from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FolderIcon, MailIcon } from "lucide-react";
@@ -97,7 +96,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer isMuted />
     </div>
   );
 }

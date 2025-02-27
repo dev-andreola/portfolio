@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "@/components/ui/sonner";
+import Footer from "@/components/footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,8 +38,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
-            <div className="pt-[62px]">{children}</div>
+            <div className="flex min-h-[100dvh] flex-col justify-between">
+              <Navbar />
+              <div className="pt-[62px]">{children}</div>
+              <Footer />
+            </div>
             <Toaster duration={4000} />
           </ThemeProvider>
         </SessionProvider>

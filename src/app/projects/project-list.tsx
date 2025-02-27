@@ -9,10 +9,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { Project } from "@/lib/types";
-import { Star } from "lucide-react";
+import { ExternalLinkIcon, Star } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 type ProjectListProps = { projects: Project[] };
 
@@ -29,7 +30,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   alt={`Thumbnail do projeto ${project.title}`}
                   width={300}
                   height={400}
-                  className="h-28 w-full rounded-t-xl object-cover object-top"
+                  className="h-36 w-full rounded-t-xl object-cover object-top md:h-28"
                 />
                 <div className="absolute right-0 top-0">
                   <Badge
@@ -63,7 +64,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                 </CardContent>
               </Card>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="rounded-lg">
               <DialogHeader>
                 <DialogTitle className="pb-4">{project.title}</DialogTitle>
                 <Image
@@ -92,14 +93,20 @@ export default function ProjectList({ projects }: ProjectListProps) {
               </DialogHeader>
               <div className="flex items-center justify-between gap-2">
                 <Button asChild variant={"outline"} className="flex-1">
-                  <Link prefetch={false} target="_blank" href={"/"}>
-                    Repositório
+                  <Link prefetch={false} target="_blank" href={project.repo}>
+                    <div className="flex items-center gap-2">
+                      <GitHubLogoIcon className="size-4" />
+                      <span>Repositório</span>
+                    </div>
                   </Link>
                 </Button>
 
                 <Button asChild className="flex-1">
                   <Link prefetch={false} target="_blank" href={project.href}>
-                    Demo
+                    <div className="flex items-center gap-2">
+                      <span>Demo</span>
+                      <ExternalLinkIcon className="size-4" />
+                    </div>
                   </Link>
                 </Button>
               </div>

@@ -5,5 +5,6 @@ export type Project = {
   tags: string[];
   imageUrl: string;
   href: string;
-  createdAt: Date;
+  repo: string;
+  createdAt: string;
 };

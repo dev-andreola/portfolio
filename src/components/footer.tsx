@@ -8,7 +8,7 @@ export default function Footer({ isMuted }: FooterProps) {
   return (
     <footer
       className={cn(
-        "bordet-t py-6 text-center text-sm text-muted-foreground",
+        "border-t py-6 text-center text-sm text-muted-foreground",
         isMuted ? "bg-muted" : "bg-background",
       )}
     >
