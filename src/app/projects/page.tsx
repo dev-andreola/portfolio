@@ -24,9 +24,9 @@ export default async function Projects({
 }: {
   searchParams?: { search?: string };
 }) {
-  const response = await axios.get("https://vt-code.vercel.app/api/projects", {
+  const response = await axios.get(`${process.env.BASE_URL}/api/projects`, {
     params: {
-      search: searchParams?.search,
+      search: searchParams?.search || "",
     },
   });
   const projects = response.data;
