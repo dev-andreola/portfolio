@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { Project } from "@/lib/types";
-import { ExternalLinkIcon, Star } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -33,16 +33,18 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   className="h-36 w-full rounded-t-xl object-cover object-top md:h-28"
                 />
                 <div className="absolute right-0 top-0">
-                  <Badge
+                  {/* <Badge
                     variant={"secondary"}
                     className="mr-2 mt-2 flex flex-row-reverse items-center gap-1 hover:bg-secondary"
                   >
                     <Star size={20} />
                     <span className="ml-1">22</span>
-                  </Badge>
+                  </Badge> */}
                 </div>
                 <CardContent className="space-y-1 p-4">
-                  <h3 className="text-lg font-semibold">{project.title}</h3>
+                  <h3 className="truncate text-lg font-semibold">
+                    {project.title}
+                  </h3>
                   <div className="overflow-x-hidden pb-2">
                     <div className="flex gap-2">
                       {project.tags.map((tag) => {

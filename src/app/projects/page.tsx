@@ -5,14 +5,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import projects from "@/utils/projects.json";
 
 import ProjectList from "./project-list";
@@ -56,7 +48,7 @@ export default async function Projects() {
 
         <ProjectList projects={projects} />
 
-        <div className="pt-12">
+        {/* <div className="pt-12">
           <Pagination>
             <PaginationContent>
               <PaginationItem>
@@ -73,7 +65,7 @@ export default async function Projects() {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-        </div>
+        </div> */}
       </div>
     </main>
   );

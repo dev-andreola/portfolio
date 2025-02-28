@@ -1,12 +1,62 @@
 [
   {
-    "id": "1",
+    "id": "6",
+    "title": "Uai Food",
+    "desc": "Site de uma empresa fictícia de delivery de comida, desenvolvido para praticar conceitos de responsividade e animações.",
+    "tags": ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "TailwindCSS"],
+    "imageUrl": "/projects/uai-food.png",
+    "href": "https://uaifood.vercel.app/",
+    "createdAt": "2024-03-12",
+    "repo": "https://github.com/dev-andreola/uai-food"
+  },
+  {
+    "id": "5",
+    "title": "Córtex Craft",
+    "desc": "Site de uma empresa fictícia de artesanato, desenvolvido para praticar conceitos de responsividade e animações.",
+    "tags": ["JavaScript", "Next.js", "Drizzle", "PostgreSQL", "TailwindCSS"],
+    "imageUrl": "/projects/cortex-craft.png",
+    "href": "https://cortex-craft.vercel.app/",
+    "createdAt": "2024-03-12",
+    "repo": "https://github.com/dev-andreola/cortex-craft"
+  },
+  {
+    "id": "4",
+    "title": "Frame Cine",
+    "desc": "Site de consulta de filmes, desenvolvido para praticar conceitos de API e consumo de dados.",
+    "tags": ["JavaScript", "Next.js", "TailwindCSS"],
+    "imageUrl": "/projects/frame-cinema.png",
+    "href": "https://frame-cinema.vercel.app/",
+    "createdAt": "2024-03-12",
+    "repo": "https://github.com/dev-andreola/frame-cinema"
+  },
+  {
+    "id": "3",
+    "title": "Solve Tech",
+    "desc": "Landing page para uma marca fictícia de desenvolvimento de software, onde pude praticar conceitos como animações e um sistema de autenticação utilizando Clerk.",
+    "tags": ["TypeScript", "Next.js", "TailwindCSS"],
+    "imageUrl": "/projects/solve-tech.png",
+    "href": "https://solve-tech.vercel.app/",
+    "createdAt": "2024-03-19",
+    "repo": "https://github.com/dev-andreola/solve-tech"
+  },
+  {
+    "id": "2",
     "title": "New View VR",
     "desc": "Landing page para uma marca fictícia de realidade virtual, desenvolvida para explorar conceitos de UI e responsividade, garantindo uma experiência visual imersiva e adaptável a diferentes dispositivos.",
     "tags": ["JavaScript", "React", "Sass"],
-    "imageUrl": "/new-view.png",
+    "imageUrl": "/projects/new-view.png",
     "href": "https://newview.vercel.app",
     "createdAt": "2023-11-19",
     "repo": "https://github.com/dev-andreola/new-view"
+  },
+  {
+    "id": "1",
+    "title": "Cara Clothing | Roupas e acessórios",
+    "desc": "Interface de um e-commerce totalmente responsivo que me ajudou a praticar e consolidar minhas habilidades básicas em desenvolvimento web.",
+    "tags": ["HTML", "CSS"],
+    "imageUrl": "/projects/cara-clothing.png",
+    "href": "https://ecommerce-cara-clothing.vercel.app/",
+    "createdAt": "2023-05-13",
+    "repo": "https://github.com/dev-andreola/ecommerce"
   }
 ]

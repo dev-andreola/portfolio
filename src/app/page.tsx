@@ -63,9 +63,11 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-muted-foreground md:text-lg">
                 Sou de Minas Gerais, tenho 24 anos e sempre gostei de explorar a
-                criação digital, como imagens, vídeos e músicas. Em 2022,
-                iniciei meus estudos em programação, focando no front-end e no
-                design de interfaces.
+                criação digital, como imagens, vídeos e músicas.
+              </p>
+              <p className="mt-4 text-muted-foreground md:text-lg">
+                Em 2022, iniciei meus estudos em programação, focando no
+                front-end e no design de interfaces.
               </p>
             </div>
             <div className="grid gap-4">
@@ -82,14 +84,33 @@ export default function Home() {
               <div className="grid gap-1">
                 <h3 className="text-lg font-bold">Experiência</h3>
                 <p className="text-muted-foreground">
-                  Experiência como desenvolvedor web freelancer, desenvolvendo
-                  websites para profissionais autônomos.
+                  Experiência como estagiário em desenvolvimento web utilizando
+                  typescript na empresa{" "}
+                  <Link
+                    href="https://www.appmasters.io/"
+                    target="_blank"
+                    className="text-primary"
+                  >
+                    App Masters
+                  </Link>{" "}
+                </p>
+                <p className="text-muted-foreground">
+                  Desenvolvimento de aplicações web freelancer para clientes e
+                  profissionais autônomos.
                 </p>
               </div>
               <div className="grid gap-1">
                 <h3 className="text-lg font-bold">Formação</h3>
                 <p className="text-muted-foreground">
-                  Cursando Análise e Desenvolvimento de Sistemas na FIAP.
+                  Cursando Análise e Desenvolvimento de Sistemas na{" "}
+                  <Link
+                    href="https://www.fiap.com.br/"
+                    target="_blank"
+                    className="text-primary"
+                  >
+                    FIAP
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
