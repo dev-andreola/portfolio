@@ -9,6 +9,8 @@ import projects from "@/utils/projects.json";
 
 import ProjectList from "./project-list";
 import SearchInput from "./search-input";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Projects() {
   return (
@@ -20,7 +22,10 @@ export default async function Projects() {
           </h1>
           <div className="flex w-full gap-4 md:w-auto">
             <div className="mx-auto flex w-full max-w-xl items-center gap-2">
-              <SearchInput />
+              <Suspense fallback={<Skeleton className="h-10 w-full" />}>
+                <SearchInput />
+              </Suspense>
+
               <div className="w-2/4 flex-1">
                 <Select>
                   <SelectTrigger className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground">

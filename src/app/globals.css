@@ -85,3 +85,14 @@
       inset 0px 2px 0px rgba(255, 255, 255, 0.03);
   }
 }
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
