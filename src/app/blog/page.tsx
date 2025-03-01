@@ -1,4 +1,3 @@
-import Footer from "@/components/footer";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,31 +10,15 @@ import {
 import { CalendarIcon, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import postList from "@/utils/posts.json";
 
 export default function Blog() {
-  const postList = [
-    {
-      title: "Masterizando React: Um Guia para Iniciantes",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam blanditiis facilis illo ullam, ut corporis placeat nulla, laudantium ratione iure aut facere harum et, magnam consequuntur consectetur incidunt ipsum! Quis?",
-      href: "/",
-      author: "Vitor Andreola",
-      createdAt: "24 de Jul de 2024",
-    },
-    {
-      title: "Como funciona o Next por baixo dos panos?",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam blanditiis facilis illo ullam, ut corporis placeat nulla, laudantium ratione iure aut facere harum et, magnam consequuntur consectetur incidunt ipsum! Quis?",
-      href: "/",
-      author: "Vitor Andreola",
-      createdAt: "31 de Jul de 2024",
-    },
-  ];
-
   return (
     <div>
-      <main className="border-b bg-muted">
+      <main className="bg-muted">
         <div className="container mx-auto max-w-6xl py-6 md:py-12">
           <div className="mb-8 flex flex-col items-center justify-between space-y-2 md:mb-10 md:flex-row lg:mb-12">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:mb-0 md:text-4xl">
               Minhas Publicações
             </h1>
             <div className="flex w-full gap-4 md:w-auto">
@@ -78,7 +61,7 @@ export default function Blog() {
                   <Card className="h-full shadow-shape">
                     <CardHeader>
                       <Image
-                        src={"/art.png"}
+                        src={post.image}
                         width={800}
                         height={400}
                         alt="Blog Post Cover"
@@ -106,7 +89,6 @@ export default function Blog() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

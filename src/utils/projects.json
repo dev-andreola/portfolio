@@ -2,7 +2,7 @@
   {
     "id": "6",
     "title": "Uai Food",
-    "desc": "Site de uma empresa fictícia de delivery de comida, desenvolvido para praticar conceitos de responsividade e animações.",
+    "desc": "Site de uma empresa fictícia de delivery de comida, desenvolvido para praticar conceitos de autenticação e gerenciamento de dados.",
     "tags": ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "TailwindCSS"],
     "imageUrl": "/projects/uai-food.png",
     "href": "https://uaifood.vercel.app/",
@@ -12,8 +12,8 @@
   {
     "id": "5",
     "title": "Córtex Craft",
-    "desc": "Site de uma empresa fictícia de artesanato, desenvolvido para praticar conceitos de responsividade e animações.",
-    "tags": ["JavaScript", "Next.js", "Drizzle", "PostgreSQL", "TailwindCSS"],
+    "desc": "Quiz de conhecimentos básicos gerais para estimular o raciocínio lógico e a memória de pessoas que sofreram de alguma afasia. O projeto conta com sistema de autenticação e produtos pagos em uma assinatura na loja.",
+    "tags": ["TypeScript", "Next.js", "Drizzle", "PostgreSQL", "TailwindCSS"],
     "imageUrl": "/projects/cortex-craft.png",
     "href": "https://cortex-craft.vercel.app/",
     "createdAt": "2024-03-12",

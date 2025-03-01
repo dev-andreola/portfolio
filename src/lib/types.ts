@@ -8,3 +8,9 @@ export type Project = {
   repo: string;
   createdAt: string;
 };
+
+export type Post = {
+  title: string;
+  desc: string;
+  image: string;
+};

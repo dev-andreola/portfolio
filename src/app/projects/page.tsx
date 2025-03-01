@@ -17,7 +17,7 @@ export default async function Projects() {
     <main className="flex-1 bg-muted">
       <div className="md:px-auto mx-auto max-w-6xl px-4 py-6 md:container md:py-12">
         <div className="mx-auto mb-8 flex max-w-6xl flex-col items-center justify-between space-y-2 md:mb-10 md:flex-row lg:mb-12">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:mb-0 md:text-4xl">
             Meus Projetos
           </h1>
           <div className="flex w-full gap-4 md:w-auto">

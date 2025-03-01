@@ -65,6 +65,8 @@ export default function Navbar() {
     }
   };
 
+  console.log(pathname);
+
   return (
     <header className="fixed left-0 top-0 z-50 w-screen border-b bg-background shadow-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
@@ -82,7 +84,7 @@ export default function Navbar() {
           {navbarItem.map((item) => (
             <Button
               asChild
-              variant={pathname === item.href ? "outline" : "ghost"}
+              variant={pathname.includes(item.href) ? "outline" : "ghost"}
               key={item.title}
             >
               <Link
@@ -165,7 +167,9 @@ export default function Navbar() {
                     onClick={handleLinkClick}
                   >
                     <Button
-                      variant={pathname === item.href ? "default" : "ghost"}
+                      variant={
+                        pathname.includes(item.href) ? "default" : "ghost"
+                      }
                       className="flex w-full items-center justify-start gap-2 text-lg font-medium"
                     >
                       <item.icon className="size-5" />
