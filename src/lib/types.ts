@@ -14,3 +14,9 @@ export type Post = {
   desc: string;
   image: string;
 };
+
+export type Message = {
+  name: string;
+  email: string;
+  message: string;
+};
