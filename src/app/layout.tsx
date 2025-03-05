@@ -1,12 +1,11 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import Navbar from "@/components/navbar/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
-import { SessionProvider } from "next-auth/react";
-import { Toaster } from "@/components/ui/sonner";
-import Footer from "@/components/footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,21 +30,19 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <SessionProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="flex min-h-[100dvh] flex-col justify-between">
-              <Navbar />
-              <div className="pt-[62px]">{children}</div>
-              <Footer />
-            </div>
-            <Toaster duration={4000} />
-          </ThemeProvider>
-        </SessionProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-[100dvh] flex-col justify-between">
+            <Navbar />
+            <div className="pt-[62px]">{children}</div>
+            <Footer />
+          </div>
+        </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

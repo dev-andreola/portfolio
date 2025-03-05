@@ -1,17 +1,20 @@
 "use client";
 
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import {
   FolderIcon,
   House,
   LampDesk,
   LogInIcon,
-  LogOutIcon,
   MailIcon,
   MenuIcon,
   UserIcon,
 } from "lucide-react";
-import { Button } from "../ui/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -21,13 +24,6 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { ThemeToggle } from "./theme-toggle-button";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Separator } from "../ui/separator";
-import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import { signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { toast } from "sonner";
 
 const navbarItem = [
   {
@@ -51,18 +47,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
-  const { data } = useSession();
-
   const handleLinkClick = () => {
     setIsSheetOpen(false);
-  };
-
-  const handleLogoutClick = async () => {
-    try {
-      await signOut();
-    } catch (error) {
-      toast.error("Houve um erro inseperado!");
-    }
   };
 
   console.log(pathname);
@@ -115,38 +101,14 @@ export default function Navbar() {
                 </SheetDescription>
               </SheetHeader>
               <nav className="grid gap-4 py-6">
-                {data?.user ? (
-                  <div className="flex justify-between pt-6">
-                    <div className="flex items-center gap-3">
-                      <Avatar>
-                        <AvatarImage
-                          src={data?.user?.image as string | undefined}
-                        />
-                        <AvatarFallback>
-                          {data?.user?.name?.split(" ")[0][0]}
-                          {data?.user?.name?.includes(" ") &&
-                            data?.user?.name?.split(" ")[1][0]}
-                        </AvatarFallback>
-                      </Avatar>
-
-                      <div>
-                        <h3 className="font-semibold">{data?.user?.name}</h3>
-                        <span className="block text-xs text-muted-foreground">
-                          {data?.user?.email}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-between">
-                    <h2 className="font-semibold">Olá. Faça seu login!</h2>
-                    <Link href={"/api/auth/signin"} onClick={handleLinkClick}>
-                      <Button size="icon">
-                        <LogInIcon />
-                      </Button>
-                    </Link>
-                  </div>
-                )}
+                <div className="flex items-center justify-between">
+                  <h2 className="font-semibold">Olá. Faça seu login!</h2>
+                  <Link href={"/api/auth/signin"} onClick={handleLinkClick}>
+                    <Button size="icon">
+                      <LogInIcon />
+                    </Button>
+                  </Link>
+                </div>
 
                 <Separator />
 
@@ -178,19 +140,6 @@ export default function Navbar() {
                   </Link>
                 ))}
               </nav>
-              {data?.user && (
-                <div>
-                  <Separator className="mb-4" />
-                  <Button
-                    variant="ghost"
-                    className="flex w-full items-center justify-start gap-2 text-lg font-medium"
-                    onClick={handleLogoutClick}
-                  >
-                    <LogOutIcon className="size-5" />
-                    <span className="block">Sair da conta</span>
-                  </Button>
-                </div>
-              )}
             </SheetContent>
           </Sheet>
         </div>
