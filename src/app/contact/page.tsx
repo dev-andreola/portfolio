@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import Footer from "@/components/footer";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import Footer from "@/components/footer";
+import ContactCard from "./contact-card";
 
 export default function Contact() {
   return (
@@ -14,32 +10,12 @@ export default function Contact() {
         <div className="my-12 w-full max-w-md flex-1 space-y-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold">Entre em Contato</h1>
-            <p className="text-muted-foreground">
+            <p className="mt-2 text-muted-foreground">
               Tem alguma pergunta ou quer trabalhar comigo? Preencha o
               formulário abaixo ou entre em contato nas mídias sociais.
             </p>
           </div>
-          <Card className="pt-6 shadow-shape">
-            <CardContent className="space-y-4">
-              <div className="grid gap-2">
-                <Label htmlFor="name">Nome</Label>
-                <Input id="name" placeholder="Vitor Andreola" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@exemplo.com" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="message">Mensagem</Label>
-                <Textarea id="message" rows={4} placeholder="Sua mensagem..." />
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button type="submit" className="w-full">
-                Enviar Mensagem
-              </Button>
-            </CardFooter>
-          </Card>
+          <ContactCard />
           <div className="flex justify-center gap-4">
             <Link
               target="_blank"
