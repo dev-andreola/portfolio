@@ -53,12 +53,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
-// Opcional: Configurar CORS headers se necessário
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "500kb",
-    },
-  },
-};
