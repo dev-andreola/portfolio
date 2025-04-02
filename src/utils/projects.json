@@ -1,12 +1,39 @@
 [
   {
+    "title": "BabyTime",
+    "id": "8",
+    "desc": "SaaS que permite a criação de páginas personalizadas para celebrar a vida de um bebê ou criança, com um cronômetro que conta o tempo de vida em tempo real e uma galeria de fotos para guardar cada momento especial.",
+    "tags": [
+      "TypeScript",
+      "Next.js",
+      "MongoDB",
+      "AWS S3",
+      "Stripe",
+      "TailwindCSS",
+      "Shadcn"
+    ],
+    "imageUrl": "/projects/baby-time.png",
+    "href": "https://babytimeapp.vercel.app/",
+    "createdAt": "2025-02-12"
+  },
+  {
+    "title": "FrontSheet",
+    "id": "7",
+    "desc": "Biblioteca de códigos úteis para desenvolvimento frontend, como máscaras de input e geradores de shadow, facilitando consultas rápidas no dia a dia.",
+    "tags": ["TypeScript", "Next.js", "TailwindCSS", "Shadcn"],
+    "imageUrl": "/projects/front-sheet.png",
+    "href": "https://front-sheet.vercel.app/",
+    "createdAt": "2025-01-24",
+    "repo": "https://github.com/dev-andreola/front-sheet"
+  },
+  {
     "id": "6",
     "title": "Uai Food",
     "desc": "Site de uma empresa fictícia de delivery de comida, desenvolvido para praticar conceitos de autenticação e gerenciamento de dados.",
     "tags": ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "TailwindCSS"],
     "imageUrl": "/projects/uai-food.png",
     "href": "https://uaifood.vercel.app/",
-    "createdAt": "2024-03-12",
+    "createdAt": "2024-04-29",
     "repo": "https://github.com/dev-andreola/uai-food"
   },
   {
@@ -16,7 +43,7 @@
     "tags": ["TypeScript", "Next.js", "Drizzle", "PostgreSQL", "TailwindCSS"],
     "imageUrl": "/projects/cortex-craft.png",
     "href": "https://cortex-craft.vercel.app/",
-    "createdAt": "2024-03-12",
+    "createdAt": "2024-04-08",
     "repo": "https://github.com/dev-andreola/cortex-craft"
   },
   {

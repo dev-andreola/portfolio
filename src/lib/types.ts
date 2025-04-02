@@ -5,7 +5,7 @@ export type Project = {
   tags: string[];
   imageUrl: string;
   href: string;
-  repo: string;
+  repo?: string;
   createdAt: string;
 };
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -13,7 +15,7 @@ import { ExternalLinkIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, LockClosedIcon } from "@radix-ui/react-icons";
 
 type ProjectListProps = { projects: Project[] };
 
@@ -76,7 +78,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   alt="Blog Post Cover"
                   className="aspect-[2/1] rounded-t-lg object-cover object-top"
                 />
-                <span className="flex gap-2 pb-[2px] pt-2">
+                <span className="flex flex-wrap gap-2 pb-[2px] pt-2">
                   {project.tags.map((tag) => {
                     return (
                       <Badge
@@ -94,13 +96,22 @@ export default function ProjectList({ projects }: ProjectListProps) {
                 </DialogDescription>
               </DialogHeader>
               <div className="flex items-center justify-between gap-2">
-                <Button asChild variant={"outline"} className="flex-1">
-                  <Link prefetch={false} target="_blank" href={project.repo}>
-                    <div className="flex items-center gap-2">
+                <Button
+                  variant={"outline"}
+                  className="flex-1"
+                  onClick={() => {
+                    window.open(project.repo, "_blank");
+                  }}
+                  disabled={!project.repo}
+                >
+                  <div className="flex items-center gap-2">
+                    {project.repo ? (
                       <GitHubLogoIcon className="size-4" />
-                      <span>Repositório</span>
-                    </div>
-                  </Link>
+                    ) : (
+                      <LockClosedIcon className="size-4" />
+                    )}
+                    <span>Repositório</span>
+                  </div>
                 </Button>
 
                 <Button asChild className="flex-1">
