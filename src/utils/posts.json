@@ -1,5 +1,15 @@
 [
   {
+    "id": 2,
+    "title": "HTTP: A linguagem da web",
+    "desc": "Conceitos básicos sobre o protocolo HTTP e como ele funciona. Aprenda os principais conceitos e como eles são usados para comunicação entre servidores e clientes.",
+    "href": "/blog/http-a-linguagem-da-web",
+    "author": "Vitor Andreola",
+    "createdAt": "02 de Abr de 2025",
+    "image": "/posts/http-a-linguagem-da-web.webp"
+  },
+  {
+    "id": 1,
     "title": "Como a internet funciona?",
     "desc": "Um resumo da base que todo desenvolvedor web precisa saber para desenvolver os seus projetos. Neste post falo sobre alguns dos principais protocolos e como eles funcionam.",
     "href": "/blog/como-a-internet-funciona",

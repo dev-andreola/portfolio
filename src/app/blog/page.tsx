@@ -64,7 +64,7 @@ export default function Blog() {
                         src={post.image}
                         width={800}
                         height={400}
-                        alt="Blog Post Cover"
+                        alt={post.title}
                         className="aspect-[2/1] rounded-t-lg object-cover"
                       />
                     </CardHeader>
@@ -76,7 +76,9 @@ export default function Blog() {
                           <CalendarIcon className="size-4" />
                           <span>{post.createdAt}</span>
                         </div>
-                        <h2 className="text-2xl font-bold">{post.title}</h2>
+                        <h2 className="truncate text-2xl font-bold">
+                          {post.title}
+                        </h2>
                         <p className="line-clamp-4 text-muted-foreground">
                           {post.desc}
                         </p>

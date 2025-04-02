@@ -11,7 +11,11 @@ import {
 export default function HowInternetWorks() {
   return (
     <div className="container mx-auto max-w-4xl py-6 md:py-12">
-      <BlogHeader title="Como a internet funciona?" date="28 de Fev de 2025" />
+      <BlogHeader
+        title="Como a internet funciona?"
+        date="28 de Fev de 2025"
+        image="/posts/como-a-internet-funciona.jpg"
+      />
       <div className="prose my-8 max-w-none">
         <div className="mt-8 space-y-4">
           <BlogTitle title="O que é uma rede?" />

@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: var(--font-roboto);
+}
+
+code {
+  font-family: var(--font-code);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

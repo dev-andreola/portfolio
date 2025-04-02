@@ -4,12 +4,19 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Fira_Code, Roboto } from "next/font/google";
 import "./globals.css";
 
-const fontSans = FontSans({
+const fontCode = Fira_Code({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-code",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const fontRoboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,8 +33,9 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={cn(
-          "font-sans min-h-screen w-screen overflow-x-hidden bg-muted antialiased",
-          fontSans.variable,
+          "min-h-screen w-screen overflow-x-hidden bg-muted antialiased",
+          fontRoboto.variable,
+          fontCode.variable,
         )}
       >
         <ThemeProvider

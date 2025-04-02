@@ -1,12 +1,21 @@
+import { cn } from "@/lib/utils";
 import { Pin } from "lucide-react";
 import Image from "next/image";
 
-export function BlogHeader({ title, date }: { title: string; date: string }) {
+export function BlogHeader({
+  title,
+  date,
+  image,
+}: {
+  title: string;
+  date: string;
+  image: string;
+}) {
   return (
     <>
       <div className="relative h-40 w-full">
         <Image
-          src={"/posts/como-a-internet-funciona.jpg"}
+          src={image}
           fill
           alt="Banner da postagem"
           className="rounded-t-xl object-cover"
@@ -22,8 +31,37 @@ export function BlogHeader({ title, date }: { title: string; date: string }) {
   );
 }
 
-export function BlogTitle({ title }: { title: string }) {
-  return <h2 className="text-2xl font-semibold">{title}</h2>;
+export function BlogTitle({
+  title,
+  level,
+  className,
+}: {
+  title: string;
+  level?: number;
+  className?: string;
+}) {
+  switch (level) {
+    case 2:
+      return (
+        <h2 className={cn("text-2xl font-semibold", className)}>{title}</h2>
+      );
+    case 3:
+      return (
+        <h3 className={cn("text-xl font-semibold", className)}>{title}</h3>
+      );
+    case 4:
+      return (
+        <h4 className={cn("text-lg font-semibold", className)}>{title}</h4>
+      );
+    case 5:
+      return (
+        <h5 className={cn("text-base font-semibold", className)}>{title}</h5>
+      );
+    default:
+      return (
+        <h2 className={cn("text-2xl font-semibold", className)}>{title}</h2>
+      );
+  }
 }
 
 export function BlogHighlight({ children }: { children: React.ReactNode }) {
@@ -69,5 +107,13 @@ export function BlogNumberListItem({
         <p>{children}</p>
       </div>
     </li>
+  );
+}
+
+export function BlogCode({ children }: { children: React.ReactNode }) {
+  return (
+    <pre className="overflow-x-auto rounded-md border bg-background p-4">
+      <code className="font-code text-sm">{children}</code>
+    </pre>
   );
 }
