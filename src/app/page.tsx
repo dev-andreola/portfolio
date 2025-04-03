@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FolderIcon, MailIcon } from "lucide-react";
 import Image from "next/image";
@@ -54,7 +53,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section id="about" className="w-full border-b bg-background">
+        <div className="mx-auto max-w-6xl py-12 md:py-24">
+          <div className="container grid gap-8 px-4 md:grid-cols-2 md:gap-16 md:px-6">
+            <h1>opa</h1>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="w-full border-b bg-muted">
         <div className="mx-auto max-w-6xl py-12 md:py-24">
           <div className="container grid gap-8 px-4 md:grid-cols-2 md:gap-16 md:px-6">
             <div>
@@ -71,16 +79,6 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-4">
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Habilidades</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">TypeScript</Badge>
-                  <Badge variant="secondary">React</Badge>
-                  <Badge variant="secondary">Node.js</Badge>
-                  <Badge variant="secondary">Next.js</Badge>
-                  <Badge variant="secondary">PostgreSQL</Badge>
-                </div>
-              </div>
               <div className="grid gap-1">
                 <h3 className="text-lg font-bold">Experiência</h3>
                 <p className="text-muted-foreground">

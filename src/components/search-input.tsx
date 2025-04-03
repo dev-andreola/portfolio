@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
+import { Search } from "lucide-react";
 export default function SearchInput() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -22,13 +22,16 @@ export default function SearchInput() {
   }
 
   return (
-    <div className="w-2/4 flex-1">
+    <div className="relative w-2/4 flex-1">
       <Input
         type="search"
-        placeholder="Buscar projetos..."
-        className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground"
+        placeholder="Buscar..."
+        className="truncate rounded-md bg-background py-2 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground"
         onChange={handleChange}
       />
+      <div className="absolute bottom-0 left-0 top-0 flex items-center justify-center px-4">
+        <Search className="size-4 text-muted-foreground" />
+      </div>
     </div>
   );
 }

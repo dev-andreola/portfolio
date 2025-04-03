@@ -21,7 +21,7 @@ const fontRoboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Vítor Andreola | vt-code",
-  description: "Potifólio pessoal",
+  description: "Portifólio pessoal",
 };
 
 export default function RootLayout({

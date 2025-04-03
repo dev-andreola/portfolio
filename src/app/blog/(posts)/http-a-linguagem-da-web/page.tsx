@@ -212,7 +212,8 @@ export default function HTTPDeepDive() {
         <div className="mt-8 space-y-4">
           <BlogTitle title="Códigos de Status: A Semântica das Respostas" />
           <p>
-            Os códigos de status HTTP são divididos em 5 classes principais:
+            Os códigos de status HTTP são divididos em classes, as principais
+            são:
           </p>
 
           <BlogTitle title="2xx - Sucesso" level={3} />

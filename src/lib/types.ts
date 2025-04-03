@@ -1,5 +1,5 @@
 export type Project = {
-  id: string;
+  id: number;
   title: string;
   desc: string;
   tags: string[];
@@ -9,10 +9,14 @@ export type Project = {
   createdAt: string;
 };
 
-export type Post = {
+export type Publication = {
+  id: number;
   title: string;
   desc: string;
   image: string;
+  href: string;
+  author: string;
+  createdAt: string;
 };
 
 export type Message = {

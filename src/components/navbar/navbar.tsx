@@ -58,10 +58,10 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="/"
-          className="flex items-baseline gap-1 pt-1"
+          className="flex items-center gap-1 pt-1"
           prefetch={false}
         >
-          <LampDesk strokeWidth={2} />
+          <LampDesk strokeWidth={2} className="mb-1" />
           <h2 className="font-custom text-2xl font-semibold tracking-tighter">
             vt-code
           </h2>
