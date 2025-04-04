@@ -14,7 +14,7 @@ type PublicationItemProps = {
 export default function PublicationItem({ publication }: PublicationItemProps) {
   return (
     <Link href={publication.href}>
-      <Card className="h-full shadow-shape">
+      <Card className="hover-effect h-full shadow-shape">
         <CardHeader>
           <Image
             src={publication.image}

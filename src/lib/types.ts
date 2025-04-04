@@ -9,6 +9,25 @@ export type Project = {
   createdAt: string;
 };
 
+export type ProjectResponse = {
+  data: Project[];
+  links: {
+    first: string;
+    last: string;
+    prev: string | null;
+    next: string | null;
+  };
+  meta: {
+    current_page: number;
+    from: number;
+    last_page: number;
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+  };
+};
+
 export type Publication = {
   id: number;
   title: string;

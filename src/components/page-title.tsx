@@ -1,11 +1,5 @@
 import SearchInput from "@/components/search-input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import FilterDropdown from "@/components/filter-dropdown";
 
 type PageTitleProps = {
   title: string;
@@ -22,25 +16,7 @@ export default function PageTitle({ title }: PageTitleProps) {
           <SearchInput />
 
           <div className="w-2/4 flex-1">
-            <Select>
-              <SelectTrigger className="truncate rounded-md bg-background px-4 py-2 text-sm text-foreground">
-                <SelectValue placeholder="Filtrar por categoria" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all" className="cursor-pointer">
-                  Todos
-                </SelectItem>
-                <SelectItem value="web" className="cursor-pointer">
-                  Web
-                </SelectItem>
-                <SelectItem value="mobile" className="cursor-pointer">
-                  Mobile
-                </SelectItem>
-                <SelectItem value="design" className="cursor-pointer">
-                  Design
-                </SelectItem>
-              </SelectContent>
-            </Select>
+            <FilterDropdown />
           </div>
         </div>
       </div>
