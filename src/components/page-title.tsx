@@ -15,9 +15,7 @@ export default function PageTitle({ title }: PageTitleProps) {
         <div className="mx-auto flex w-full max-w-xl items-center gap-2">
           <SearchInput />
 
-          <div className="w-2/4 flex-1">
-            <FilterDropdown />
-          </div>
+          <FilterDropdown />
         </div>
       </div>
     </div>

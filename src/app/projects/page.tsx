@@ -7,11 +7,12 @@ import PaginationButtons from "@/components/pagination-buttons";
 export default async function Projects({
   searchParams,
 }: {
-  searchParams: { page: number; search: string };
+  searchParams: { page: number; search: string; tag: string };
 }) {
   const res = await fetchProjects({
     page: searchParams.page,
     search: searchParams.search,
+    tag: searchParams.tag,
   });
 
   const projects: Project[] = res.data;

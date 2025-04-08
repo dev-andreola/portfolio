@@ -1,22 +1,5 @@
 [
   {
-    "title": "Dashboard",
-    "id": 9,
-    "desc": "SaaS que permite a criação de páginas personalizadas para celebrar a vida de um bebê ou criança, com um cronômetro que conta o tempo de vida em tempo real e uma galeria de fotos para guardar cada momento especial.",
-    "tags": [
-      "TypeScript",
-      "Next.js",
-      "MongoDB",
-      "AWS S3",
-      "Stripe",
-      "TailwindCSS",
-      "Shadcn"
-    ],
-    "imageUrl": "https://amadine.com/assets/img/articles/ui-design/contemporary-ui-design@2x.jpg",
-    "href": "https://babytimeapp.vercel.app/pt",
-    "createdAt": "2025-02-12"
-  },
-  {
     "title": "BabyTime",
     "id": 8,
     "desc": "SaaS que permite a criação de páginas personalizadas para celebrar a vida de um bebê ou criança, com um cronômetro que conta o tempo de vida em tempo real e uma galeria de fotos para guardar cada momento especial.",

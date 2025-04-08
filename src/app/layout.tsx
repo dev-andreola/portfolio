@@ -41,7 +41,6 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
           disableTransitionOnChange
         >
           <div className="flex min-h-[100dvh] flex-col justify-between">

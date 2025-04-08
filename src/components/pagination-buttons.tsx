@@ -14,15 +14,19 @@ export default function PaginationButtons({
   res: ProjectResponse;
   searchParams: { page: number; search: string };
 }) {
+  const search = searchParams.search;
+
   return (
     <div className="pt-12">
-      {res.meta.last_page > 1 && (
+      {res.meta?.last_page > 1 && (
         <Pagination>
           <PaginationContent>
             {res.links?.prev && (
               <PaginationItem>
                 <PaginationPrevious
-                  href={`/projects?page=${res.meta.current_page - 1}&search=${searchParams.search || ""}`}
+                  href={`/projects?page=${res.meta.current_page - 1}${
+                    search ? `&search=${search}` : ""
+                  }`}
                 />
               </PaginationItem>
             )}
@@ -30,7 +34,9 @@ export default function PaginationButtons({
               (pageNum) => (
                 <PaginationItem key={pageNum}>
                   <PaginationLink
-                    href={`/projects?page=${pageNum}&search=${searchParams.search || ""}`}
+                    href={`/projects?page=${pageNum}${
+                      search ? `&search=${search}` : ""
+                    }`}
                     isActive={pageNum === res.meta.current_page}
                   >
                     {pageNum}
@@ -41,7 +47,9 @@ export default function PaginationButtons({
             {res.links?.next && (
               <PaginationItem>
                 <PaginationNext
-                  href={`/projects?page=${res.meta.current_page + 1}&search=${searchParams.search || ""}`}
+                  href={`/projects?page=${res.meta.current_page + 1}${
+                    search ? `&search=${search}` : ""
+                  }`}
                 />
               </PaginationItem>
             )}

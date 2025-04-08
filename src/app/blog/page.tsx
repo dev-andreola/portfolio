@@ -1,5 +1,5 @@
 import PageTitle from "@/components/page-title";
-import publications from "@/utils/publications.json";
+import publications from "@/constants/publications.json";
 import PublicationItem from "./(components)/publication-item";
 
 export default function Blog() {

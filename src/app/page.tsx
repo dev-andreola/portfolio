@@ -65,7 +65,7 @@ export default function Home() {
             <p className="mb-16 text-center text-muted-foreground md:text-xl">
               Tecnologias e ferramentas que domino e utilizo no meu dia a dia
             </p>
-            <InfiniteSlider speedOnHover={20} gap={24}>
+            <InfiniteSlider gap={24}>
               <StackIcon name="postgresql" grayscale className="size-14" />
               <StackIcon name="reactjs" grayscale className="size-14" />
               <StackIcon name="git" grayscale className="size-14" />
