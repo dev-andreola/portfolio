@@ -14,6 +14,7 @@ import { Button } from "./ui/button";
 import { Filter } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function FilterDropdown() {
   const [filterStatus, setFilterStatus] = useState("all");
@@ -46,7 +47,10 @@ export default function FilterDropdown() {
         <Button
           variant="outline"
           size={"default"}
-          className="flex w-36 gap-2 text-muted-foreground"
+          className={cn(
+            "flex w-36 gap-2 text-muted-foreground",
+            filterStatus !== "all" && "text-foreground",
+          )}
         >
           <Filter className="size-4" />
           {filterStatus === "all" ? "Filtrar" : filterStatus}
@@ -60,15 +64,21 @@ export default function FilterDropdown() {
           value={filterStatus}
           onValueChange={handleChangeFilter}
         >
-          <DropdownMenuRadioItem value="all">Todos</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="TypeScript">
+          <DropdownMenuRadioItem value="all" className="cursor-pointer">
+            Todos
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="TypeScript" className="cursor-pointer">
             TypeScript
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="JavaScript">
+          <DropdownMenuRadioItem value="JavaScript" className="cursor-pointer">
             JavaScript
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="React">React</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="Next.js">Next.js</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="React" className="cursor-pointer">
+            React
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="Next.js" className="cursor-pointer">
+            Next.js
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
